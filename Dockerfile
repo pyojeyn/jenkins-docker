@@ -3,8 +3,8 @@ FROM jenkins/jenkins:lts
 USER root
 
 # Install Docker
-ARG DOCKER_VERSION=20.10.6
-RUN curl -fsSL https://get.docker.com -o get-docker.sh && \
+ARG DOCKER_VERSION=24.0.6
+RUN curl -fsSL https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz -o docker.tgz && \
     sh get-docker.sh && \
     rm get-docker.sh && \
     usermod -aG docker jenkins
