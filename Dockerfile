@@ -3,11 +3,10 @@ FROM jenkins/jenkins:lts
 USER root
 
 # Install Docker
-ARG DOCKER_VERSION=24.0.6
-RUN curl -fsSL https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz -o docker.tgz && \
-    tar -xz -C /tmp -f docker.tgz && \
-    mv /tmp/docker/* /usr/local/bin/ && \
-    rm -rf /tmp/docker* && \
+ARG DOCKER_VERSION=20.10.6
+RUN curl -fsSL https://get.docker.com -o get-docker.sh && \
+    sh get-docker.sh && \
+    rm get-docker.sh && \
     usermod -aG docker jenkins
 
 # Add Jenkins user to the Docker group if not already a member
