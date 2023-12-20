@@ -8,8 +8,8 @@ RUN curl -fsSL https://get.docker.com -o get-docker.sh && \
     rm get-docker.sh
 
 # Add Jenkins user to the Docker group if not already a member
-ARG DOCKER_GID_ON_HOST
-RUN groupadd -g $DOCKER_GID_ON_HOST docker || true && \
+RUN DOCKER_GID=$(getent group docker | cut -d: -f3) && \
+    groupadd -g $DOCKER_GID docker || true && \
     usermod -aG docker jenkins
 
 USER jenkins
