@@ -4,7 +4,7 @@ USER root
 
 # Install Docker
 ARG DOCKER_VERSION=24.0.6
-RUN mkdir -f /tmp/download && \
+RUN mkdir -p /tmp/download && \
     curl -fsSL https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz -o docker.tgz && \
     tar --extract --file docker.tgz --strip-components 1 --directory /tmp/docker && \
     rm docker.tgz
