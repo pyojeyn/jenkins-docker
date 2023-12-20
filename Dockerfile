@@ -6,8 +6,6 @@ USER root
 ARG DOCKER_VERSION=24.0.6
 RUN curl -fsSL https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz -o docker.tgz && \
     tar --extract --file docker.tgz --strip-components 1 --directory /tmp/docker && \
-    mv /tmp/docker/* /usr/local/bin/ && \
-    rm -rf /tmp/docker* && \
     rm docker.tgz
 
 # Add Jenkins user to the Docker group if not already a member
