@@ -1,7 +1,7 @@
 FROM jenkins/jenkins:lts
 
 USER root
-
+## 최종으로 도커 24.0.6으로 설치 성공.
 # Install Docker
 ARG DOCKER_VERSION=24.0.6
 RUN mkdir -p /tmp/docker && \
