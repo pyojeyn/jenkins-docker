@@ -9,7 +9,7 @@ RUN mkdir -p /tmp/docker && \
     tar --extract --file docker.tgz --strip-components 1 --directory /tmp/docker && \
     mv /tmp/docker/* /usr/local/bin/ && \
     rm docker.tgz && \
-    groupadd -g 1001 docker && \
+    groupadd -g 999 docker && \
     usermod -aG docker jenkins
 
 # Add Jenkins user to the Docker group if not already a member
